@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header bg-success">
+        <h5>Task List</h5>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Sr No</th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of taskList; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.taskName }}</td>
+                <td>{{ item.taskDescription }}</td>
+                <td>{{ item.taskStatus }}</td>
+                <td class="col-3 text-center">
+                  <button class="btn btn-primary" (click)="onEdit(item.taskId)">
+                    Edit
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    style="margin-left: 30px"
+                    (click)="onDelete(item.taskId)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-12 text-end">
+            <a
+              routerLink="/add-task"
+              style="
+                height: 30cm;
+                width: 30cm;
+                background-color: cadetblue;
+                color: rgb(18, 18, 17);
+                padding-top: 10px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-bottom: 10px;
+                text-decoration: none;
+                border-radius: 3px;
+              "
+              >Add Task</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
